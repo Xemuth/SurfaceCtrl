@@ -5,7 +5,7 @@
 #include <SurfaceCtrl/SurfaceCtrl.h>
 namespace Upp{
 
-#define LAYOUTFILE <SurfaceCtrl_Demo/SurfaceCtrl_Demo.lay>
+#define LAYOUTFILE <examples/SurfaceCtrl_Demo/SurfaceCtrl_Demo.lay>
 #include <CtrlCore/lay.h>
 
 class SurfaceCtrl_Demo : public WithSurfaceCtrl_DemoLayout<TopWindow> {
