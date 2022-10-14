@@ -98,7 +98,7 @@ class Object3DProvider {
 		Object3DProvider& AddArrow(float x0, float y0, float z0, float x1, float y1, float z1, const Color &color, int alpha= 255){
 			if(begin){
 				Segment3D seg(Point3D(x0, y0, z0), Point3D(x1, y1, z1));
-				Vector3D vector = seg.Vector().Normalize();
+				auto vector = seg.Direction();
 				double len = seg.Length();
 				double lenArr = 0.8*len;
 				Point3D pointTri(x0, y0, z0);
