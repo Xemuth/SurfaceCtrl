@@ -46,7 +46,7 @@ void SurfaceCtrl::InitShader(){
 	)).Link();
 	
 	DrawMeshLine.AttachShader(OpenGLShader(GL_VERTEX_SHADER,
-		#include "shaders/Vertex.glsl"
+		#include "shaders/VertexSimple.glsl"
 	)).AttachShader(OpenGLShader(GL_GEOMETRY_SHADER,
 		#include "shaders/GeometryTriangle.glsl"
 	)).AttachShader(OpenGLShader(GL_FRAGMENT_SHADER,
