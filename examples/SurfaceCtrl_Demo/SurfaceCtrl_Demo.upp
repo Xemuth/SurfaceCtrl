@@ -1,7 +1,7 @@
 uses
 	CtrlLib,
-	SurfaceCtrl,
-	Functions4U;
+	Functions4U,
+	SurfaceCtrl/SurfaceCtrl;
 
 file
 	SurfaceCtrl_Demo.h,
@@ -11,5 +11,6 @@ file
 mainconfig
 	"" = "USEMALLOC",
 	"" = "USEMALLOC GUI",
+	"" = "GUI NO_ASSIMP",
 	"" = "GUI";
 

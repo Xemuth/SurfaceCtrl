@@ -2,12 +2,13 @@ description "\377B113,255,200";
 
 uses
 	Surface,
-	plugin/assimp,
 	plugin/jpg,
 	plugin/png,
 	plugin/tif,
 	plugin/gif,
 	GLCtrl;
+
+uses(!NO_ASSIMP) plugin/assimp;
 
 library(WIN32 (GCC | CLANG)) "glu32 opengl32";
 
@@ -40,4 +41,8 @@ file
 	shaders\FragmentLight.glsl highlight cpp,
 	shaders\FragmentBlack.glsl highlight cpp,
 	shaders\FragmentCubeMap.glsl highlight cpp;
+
+mainconfig
+	"" = "NO_ASSIMP",
+	"" = "";
 

@@ -123,6 +123,8 @@ Object3D::~Object3D(){
 	}
 	Clear();
 }
+
+#ifndef flagNO_ASSIMP
 /**
 	LoadModel load multiple kind of object file using Assimp lib, you can specify some custom
 	load routine by editing pFlags, if pFlags = 0 then SurfaceCtrl default behavior about
@@ -167,6 +169,8 @@ Object3D& Object3D::LoadModel(const String& Filename, Color color, int alpha , u
     }
     return *this;
 }
+#endif
+
 int Object3D::LoadTexture(const Image& img , const String& name, int indiceWhereInsert){
 	Image image = clone(img);
 	String trueName = name;
@@ -212,6 +216,8 @@ int Object3D::LoadTexture(const Image& img , const String& name, int indiceWhere
 
 	return indice;
 }
+
+#ifndef flagNO_ASSIMP
 /*
 	Assimp loading function
 */
@@ -339,6 +345,7 @@ bool Object3D::InitMaterials(const aiScene* pScene, const String& Filename){
     }
     return true;
 }
+#endif
 
 Object3D& Object3D::LoadSurface(Surface& surface, Color color, int alpha){
 	Mesh& mesh = meshes.Create();
@@ -356,10 +363,10 @@ Object3D& Object3D::LoadSurface(Surface& surface, Color color, int alpha){
 				Point3D p = surface.nodes[panel.id[e]];
 				vertices.Add(float(p.x));
 				vertices.Add(float(p.y));
-				vertices.Add(float(p.z));
+				vertices.Add(-float(p.z));
 				normals.Add(float(panel.normalPaint.x));
 				normals.Add(float(panel.normalPaint.y));
-				normals.Add(float(panel.normalPaint.z));
+				normals.Add(-float(panel.normalPaint.z));
 				colors.Add(col.x);
 				colors.Add(col.y);
 				colors.Add(col.z);
@@ -373,11 +380,11 @@ Object3D& Object3D::LoadSurface(Surface& surface, Color color, int alpha){
 				if(e == 2) SecondTriangle[0] = p;
 				vertices.Add(float(p.x));
 				vertices.Add(float(p.y));
-				vertices.Add(float(p.z));
+				vertices.Add(-float(p.z));
 				
 				normals.Add(float(panel.normalPaint.x));
 				normals.Add(float(panel.normalPaint.y));
-				normals.Add(float(panel.normalPaint.z));
+				normals.Add(-float(panel.normalPaint.z));
 				
 				colors.Add(col.x);
 				colors.Add(col.y);
@@ -389,11 +396,11 @@ Object3D& Object3D::LoadSurface(Surface& surface, Color color, int alpha){
 				Point3D p = SecondTriangle[e];
 				vertices.Add(float(p.x));
 				vertices.Add(float(p.y));
-				vertices.Add(float(p.z));
+				vertices.Add(-float(p.z));
 				
 				normals.Add(float(panel.normalPaint.x));
 				normals.Add(float(panel.normalPaint.y));
-				normals.Add(float(panel.normalPaint.z));
+				normals.Add(-float(panel.normalPaint.z));
 				
 				colors.Add(col.x);
 				colors.Add(col.y);
@@ -405,7 +412,7 @@ Object3D& Object3D::LoadSurface(Surface& surface, Color color, int alpha){
 	return *this;
 }
 
-Surface Object3D::GetSurface(){ //return a surface Objectd
+Surface Object3D::GetSurface(){ // Return a Surface object
 	Surface surf;
 	for(Mesh& m : meshes){
 		auto& vertices = m.GetVertices();
