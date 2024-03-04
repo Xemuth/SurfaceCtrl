@@ -74,7 +74,14 @@ namespace Upp{
 			try {
 				canvas.ExecuteGL([&]{
 				Object3D& obj = canvas.CreateObject();
+#ifndef flagNO_ASSIMP
 				obj.LoadModel(~filename).Init();
+#else
+				Surface surf;
+				LoadStl(~filename, surf);
+				surf.GetPanelParams();
+				obj.LoadSurface(surf, Gray(), 255).Init();
+#endif
 				obj.GetTransform().Rotate(90.0f,glm::vec3(1.0f,0.0f,0.0f));
 				obj.GetTransform().SetScale(glm::vec3(1.0f,1.0f,1.0f));
 				obj.SetLineWidth(2.0f);
@@ -86,6 +93,7 @@ namespace Upp{
 				Exclamation(DeQtf(e));
 			}
 		};
+#ifndef flagNO_ASSIMP
 		OpenEarth.WhenAction = [&]{
 			try {
 				canvas.ExecuteGL([&]{
@@ -113,7 +121,10 @@ namespace Upp{
 				Exclamation(DeQtf(e));
 			}
 		};
-		
+#else
+		OpenEarth.Disable();
+		Ultimate.Disable();
+#endif		
 		zoomToFit.WhenAction = [&]{
 			canvas.ZoomToFit();
 			canvas.Refresh();
