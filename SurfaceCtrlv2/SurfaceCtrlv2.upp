@@ -1,0 +1,26 @@
+uses
+	Surface/Surface,
+	GLCtrl,
+	plugin/assimp,
+	plugin/png,
+	plugin/jpg,
+	plugin/tif,
+	plugin/gif;
+
+library(WIN32 (GCC | CLANG)) "glu32 opengl32";
+
+library(LINUX | BSD) "gl glu";
+
+file
+	include readonly separator,
+	Camera.h,
+	SurfaceCtrlLogic.h,
+	Skybox.h,
+	Object3D.h,
+	SurfaceCtrl.h,
+	src readonly separator,
+	SurfaceCtrl.cpp,
+	SurfaceCtrlLogic.cpp,
+	ressources readonly separator,
+	SurfaceCtrl.iml;
+

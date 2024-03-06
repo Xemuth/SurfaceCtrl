@@ -1,5 +1,7 @@
 #ifndef _UOGLCtrl_UOGLCtrl_h_
 #define _UOGLCtrl_UOGLCtrl_h_
+#include <memory>
+
 #include "Definition.h"
 #include "Object3DProvider.h"
 #include "Object3D.h"
@@ -15,6 +17,10 @@ static const String GetSurfaceCtrlDirectory(const String& ressourceToGet=""){
 }
 	
 class SurfaceCtrl : public GLCtrl{
+	private:
+		class SurfaceCtrlImpl;
+		std::shared_ptr<SurfaceCtrlImpl> pImpl;
+	
 	public:
 		SurfaceCtrl();
 		~SurfaceCtrl();
@@ -25,25 +31,36 @@ class SurfaceCtrl : public GLCtrl{
 		
 		//Starting function
 		void Init()noexcept;
-		void InitCamera()noexcept;
+		//void InitCamera()noexcept;
 
-		//Action on all objects vector
-		const Upp::Vector<Object3D>& GetAllObjects()const noexcept{return allObjects;}
-		Object3D& CreateObject()noexcept;
-		int FindObject(int ID)const noexcept;
-		Object3D& GetObject(int ID)noexcept;
-		void DeleteObject(int ID)noexcept; //Delete the object (update selected)
-		void DeleteAllObjects()noexcept; //Delete all object
-		void SetDefaultShader(Object3D& obj); //Set default to the object in arg
-		void DrawAllObjects()noexcept; //Draw all object
+		
+		void Draw()noexcept;
+	
+		const Upp::Vector<Object3D>& Objects() const noexcept;
+		Upp::Vector<Object3D>& Objects()const noexcept;
+		
+		
+		
+//		Object3D& CreateObject()noexcept;
+//		int FindObject(int ID)const noexcept;
+//		Object3D& GetObject(int ID)noexcept;
+//		void DeleteObject(int ID)noexcept; //Delete the object (update selected)
+//		void DeleteAllObjects()noexcept; //Delete all object
+//		void SetDefaultShader(Object3D& obj); //Set default to the object in arg
+		//void DrawAllObjects()noexcept; //Draw all object
 
 		//Change selected object vector
+		/*
 		const Upp::Vector<int>& GetSelectedObject()const noexcept{return allSelected;} //return const vector representing all selected Object
 		void AddSelectedObject(int ID)noexcept;
 		void UpdateSelectedObjectViaMouse(Point& p, dword keyflags)noexcept; //Process work on selected object depending on keyflags and point
 		glm::vec3 GetCenterPoint()const noexcept; //Return center point between all selected item
 		void RemoveSelectedObject(int ID)noexcept;
 		void ClearSelectedObject()noexcept;
+		*/
+		
+		
+			
 		
 		//Skybox Getter
 		Skybox& GetSkybox()noexcept{return skybox;}
