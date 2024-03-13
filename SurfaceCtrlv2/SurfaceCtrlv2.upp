@@ -18,9 +18,11 @@ file
 	Skybox.h,
 	Object3D.h,
 	SurfaceCtrl.h,
+	Shader.h,
 	src readonly separator,
 	SurfaceCtrl.cpp,
 	SurfaceCtrlLogic.cpp,
+	Shader.cpp,
 	ressources readonly separator,
 	SurfaceCtrl.iml;
 

@@ -20,7 +20,7 @@ class SurfaceCtrl: public GLCtrl
 
 		virtual void Layout();
 		virtual void GLPaint();
-		virtual void GLResize(int w, int h); 
+		virtual void GLResize(int w, int h);
 		
 		virtual bool Key(dword key,int count);
 		virtual Image HandleEvent(int event, Point p, int zdelta, dword key);

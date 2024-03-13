@@ -12,7 +12,7 @@ namespace
 	static const Upp::Ctrl::PlacementConstants BUTTON_ROTATION      = Upp::Ctrl::MIDDLE;
 	static const Upp::Ctrl::PlacementConstants BUTTON_DRAG          = Upp::Ctrl::LEFT;
 	static const Upp::Ctrl::PlacementConstants BUTTON_MENU          = Upp::Ctrl::RIGHT;
-	static const Upp::CtrlCoreFlags  		   TRANSLATION_MODIFIER = Upp::CtrlCoreFlags::K_SHIFT;
+	static const Upp::CtrlCoreFlags			   TRANSLATION_MODIFIER = Upp::CtrlCoreFlags::K_SHIFT;
 	
 	class CameraFlags
 	{
@@ -51,7 +51,7 @@ namespace Upp
 	}
 	SurfaceCtrl::~SurfaceCtrl(){}
 			
-	void SurfaceCtrl::Draw() noexcept 
+	void SurfaceCtrl::Draw() noexcept
 	{
 		// TODO
 	}
