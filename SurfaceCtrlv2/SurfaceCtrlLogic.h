@@ -6,8 +6,9 @@
 #include "Object3D.h"
 #include "Camera.h"
 
-
-
+namespace Upp
+{
+	
 /* 
 	SurfaceCtrLogic will hold all 3D Items + camera logic + Shaders and renderer
 */
@@ -33,6 +34,8 @@ class SurfaceCtrlLogic
 		class SurfaceCtrlLogicImpl;
 		std::shared_ptr<SurfaceCtrlLogicImpl> pImpl;
 };
+
+}
 
 
 #endif

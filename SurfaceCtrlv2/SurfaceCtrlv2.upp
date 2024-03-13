@@ -24,5 +24,15 @@ file
 	SurfaceCtrlLogic.cpp,
 	Shader.cpp,
 	ressources readonly separator,
-	SurfaceCtrl.iml;
+	SurfaceCtrl.iml,
+	shaders readonly separator,
+	shaders\VertexSimple.glsl,
+	shaders\VertexCubeMap.glsl,
+	shaders\Vertex.glsl,
+	shaders\GeometryTriangle.glsl,
+	shaders\GeometryNormal.glsl,
+	shaders\FragmentNoLight.glsl,
+	shaders\FragmentLight.glsl,
+	shaders\FragmentCubeMap.glsl,
+	shaders\FragmentBlack.glsl;
 
