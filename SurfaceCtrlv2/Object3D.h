@@ -7,7 +7,7 @@ namespace Upp
 {
 
 	class Object3D: public Upp::Moveable<Object3D> {
-		public:		
+		public:
 			Object3D();
 			Object3D(Object3D&& obj);
 			Object3D& operator=(Object3D&& obj);

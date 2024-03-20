@@ -14,6 +14,7 @@ library(LINUX | BSD) "gl glu";
 file
 	include readonly separator,
 	Camera.h,
+	Transform.h,
 	SurfaceCtrlLogic.h,
 	Skybox.h,
 	Object3D.h,
@@ -23,6 +24,8 @@ file
 	SurfaceCtrl.cpp,
 	SurfaceCtrlLogic.cpp,
 	Shader.cpp,
+	MagicCamera.cpp,
+	UOGLCamera.cpp,
 	ressources readonly separator,
 	SurfaceCtrl.iml,
 	shaders readonly separator,

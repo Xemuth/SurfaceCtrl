@@ -80,7 +80,7 @@ class OpenGLProgram : public Moveable<OpenGLProgram>{
 		String GetName(){return name;}
 		bool ContainVertex()const noexcept{return (linked)? vertex : false;}
 		bool ContainTCS()const noexcept{return (linked)? TCS : false;}
-		bool ContainTES()const noexcept{return (linked)? TES : false;}
+		bool ContainTES()const noexcept{return (linked)? TES : false;}	
 		bool ContainGeometry()const noexcept{return (linked)? geometry : false;}
 		bool ContainFragment()const noexcept{return (linked)? fragment : false;}
 
@@ -97,7 +97,7 @@ class OpenGLProgram : public Moveable<OpenGLProgram>{
 						TES = shad.GetID();
 						break;
 					case GL_GEOMETRY_SHADER:
-						geometry = shad.GetID();
+						geometry = shad.x();
 						break;
 					case GL_FRAGMENT_SHADER:
 						fragment = shad.GetID();
