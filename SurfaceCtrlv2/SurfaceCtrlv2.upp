@@ -24,6 +24,7 @@ file
 	SurfaceCtrl.cpp,
 	SurfaceCtrlLogic.cpp,
 	Shader.cpp,
+	Transform.cpp,
 	MagicCamera.cpp,
 	UOGLCamera.cpp,
 	ressources readonly separator,
